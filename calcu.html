@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PHP Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <form method="post">
+            <input type="text" name="display" id="display" readonly><br>
+            <input type="button" value="7" onclick="addToDisplay('7')">
+            <input type="button" value="8" onclick="addToDisplay('8')">
+            <input type="button" value="9" onclick="addToDisplay('9')">
+            <input type="button" class="operator" value="/" onclick="addToDisplay('/')"><br>
+            <input type="button" value="4" onclick="addToDisplay('4')">
+            <input type="button" value="5" onclick="addToDisplay('5')">
+            <input type="button" value="6" onclick="addToDisplay('6')">
+            <input type="button" class="operator" value="*" onclick="addToDisplay('*')"><br>
+            <input type="button" value="1" onclick="addToDisplay('1')">
+            <input type="button" value="2" onclick="addToDisplay('2')">
+            <input type="button" value="3" onclick="addToDisplay('3')">
+            <input type="button" class="operator" value="-" onclick="addToDisplay('-')"><br>
+            <input type="button" value="0" onclick="addToDisplay('0')">
+            <input type="button" class="clear" value="C" onclick="clearDisplay()">
+            <input type="button" class="operator" value="+" onclick="addToDisplay('+')">
+            <input type="button" class="equal" value="=" onclick="calculate()">
+        </form>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch(error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
